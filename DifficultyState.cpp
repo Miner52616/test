@@ -20,7 +20,7 @@ DifficultyState::DifficultyState(application &app,const sf::Font &font):
 
 void DifficultyState::HandleEvent(sf::RenderWindow& window,const sf::Event::KeyPressed& key)
 {
-    if(key.code==sf::Keyboard::Key::Down)
+    if((key.code==sf::Keyboard::Key::Down)||(key.code==sf::Keyboard::Key::Right))
     {
        do
        {
@@ -28,7 +28,7 @@ void DifficultyState::HandleEvent(sf::RenderWindow& window,const sf::Event::KeyP
        }while(buttonlist_[focus_-1].getButtonLocked()==locked);
     }
 
-    if(key.code==sf::Keyboard::Key::Up)
+    if((key.code==sf::Keyboard::Key::Up)||(key.code==sf::Keyboard::Key::Left))
     {
        do
        {
@@ -40,7 +40,7 @@ void DifficultyState::HandleEvent(sf::RenderWindow& window,const sf::Event::KeyP
        }while(buttonlist_[focus_-1].getButtonLocked()==locked);
     }
 
-    if(key.code==sf::Keyboard::Key::X)
+    if((key.code==sf::Keyboard::Key::X)||(key.code==sf::Keyboard::Key::Escape))
     {
         app_.stack_.popState();
     }

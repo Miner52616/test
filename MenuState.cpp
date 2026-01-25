@@ -43,7 +43,7 @@ void MenuState::HandleEvent(sf::RenderWindow& window,const sf::Event::KeyPressed
        }while(buttonlist_[focus_-1].getButtonLocked()==locked);
     }
     
-    if(key.code==sf::Keyboard::Key::X)
+    if((key.code==sf::Keyboard::Key::X)||(key.code==sf::Keyboard::Key::Escape))
     {
         focus_=MenuButtonNum;
     }
