@@ -6,7 +6,17 @@ template<typename Derived>
 ButtonState<Derived>::ButtonState(application &app,const sf::Font &font,int ButtonNum):
     State(app,font),focus_(1)
 {
-    buttonlist_.resize(ButtonNum);
+    //buttonlist_.resize(ButtonNum);
+    setbuttonlistLength(ButtonNum);
+}
+
+template<typename Derived>
+void ButtonState<Derived>::setbuttonlistLength(int length)
+{
+    for(;buttonlist_.size()<length;)
+    {
+        buttonlist_.emplace_back(font_);
+    }
 }
 
 template<typename Derived>

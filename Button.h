@@ -13,10 +13,10 @@ class Button
 private:
     int focused_;
     int locked_;
-    sf::Font font_;
+    const sf::Font &font_;
     sf::Text text_;
 public:
-    Button();
+    Button(const sf::Font &font);
 
 public:
     sf::Text getButtonText_();

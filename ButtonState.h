@@ -14,6 +14,7 @@ protected:
 
 public:
     ButtonState(application &app,const sf::Font &font,int ButtonNum);
+    void setbuttonlistLength(int length);
     void ProcessEvent(sf::RenderWindow& window,const std::optional<sf::Event> event) override;
     void Update() override;
     void Render(sf::RenderWindow& window) override;

@@ -1,8 +1,8 @@
 #include "Button.h"
 #include <iostream>
 
-Button::Button():
-    font_("abc.ttf"),text_(font_),focused_(not_befocused),locked_(unlocked)
+Button::Button(const sf::Font &font):
+    font_(font),text_(font_),focused_(not_befocused),locked_(unlocked)
 {
     text_.setString("input");
     text_.setCharacterSize(50);
