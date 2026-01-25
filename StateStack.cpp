@@ -9,13 +9,15 @@ StateStack::StateStack()
 void StateStack::push(std::unique_ptr<State> state)
 {
     stack_.push_back(std::move(state));
+    std::cout<<"push success\n";
 }
 
 void StateStack::pop()
 {
-    if(!stack_.empty());
+    if(!stack_.empty())
     {
         stack_.pop_back();
+        std::cout<<"pop success\n";
     }
 }
 
@@ -55,6 +57,7 @@ void StateStack::pushState(std::unique_ptr<State> state)
 {
     changestate_.action=Action::Push;
     changestate_.state=std::move(state);
+    std::cout<<"wait for push success\n";
 }
 
 void StateStack::popState()

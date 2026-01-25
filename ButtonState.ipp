@@ -3,8 +3,8 @@
 #include <iostream>
 
 template<typename Derived>
-ButtonState<Derived>::ButtonState(application &app,int ButtonNum):
-    State(app),focus_(1)
+ButtonState<Derived>::ButtonState(application &app,const sf::Font &font,int ButtonNum):
+    State(app,font),focus_(1)
 {
     buttonlist_.resize(ButtonNum);
 }
@@ -61,9 +61,9 @@ void ButtonState<Derived>::updatebuttonlist_()
 template<typename Derived>
 void ButtonState<Derived>::Render(sf::RenderWindow& window)
 {
-    window.clear();
+    //window.clear();
     DrawButton_(window);
-    window.display();
+    //window.display();
 }
 
 /*

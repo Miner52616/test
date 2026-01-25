@@ -9,7 +9,7 @@ class application;
 class State
 {
 public:
-    explicit State(application &app):app_(app){}
+    explicit State(application &app,const sf::Font &font):app_(app),font_(font){}
     virtual ~State()=default;
 
     virtual void ProcessEvent(sf::RenderWindow& window,const std::optional<sf::Event> event)=0;
@@ -21,8 +21,6 @@ public:
 
 protected:
     application &app_;
+    const sf::Font &font_;
 
-//public:
-//    virtual void HandleEvent(sf::RenderWindow& window,const sf::Event&)=0;
-//    virtual void HandleEvent(sf::RenderWindow& window,const std::optional<sf::Event>& event)=0;
 };

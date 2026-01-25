@@ -5,10 +5,11 @@
 
 application::application():
 //初始化窗口属性
-    window_(sf::VideoMode({1280,960}),"trytry window")
+    window_(sf::VideoMode({1280,960}),"trytry window"),mainFont_("abc.ttf")
 {
+//    mainFont_.openFromFile("abc.ttf");
     window_.setFramerateLimit(60);
-    stack_.push(std::make_unique<MenuState>(*this));
+    stack_.push(std::make_unique<MenuState>(*this,this->mainFont_));
 }
 
 bool application::IsRunning() const
@@ -36,5 +37,7 @@ void application::Update()
 void application::Render()
 {
 //    current_state_->Render(window_);
+    window_.clear();
     stack_.Render(window_);
+    window_.display();
 }

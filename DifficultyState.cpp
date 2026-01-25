@@ -2,8 +2,8 @@
 #include "application.h"
 #include <iostream>
 
-DifficultyState::DifficultyState(application &app):
-    ButtonState(app,DifButtonNum)
+DifficultyState::DifficultyState(application &app,const sf::Font &font):
+    ButtonState(app,font,DifButtonNum)
 {
     buttonlist_[0].setButtonText("Easy");
     buttonlist_[0].setButtonPosition({150,250});

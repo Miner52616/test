@@ -11,6 +11,8 @@
         "MenuState.cpp",
         "DifficultyState.cpp",
         "ManualState.cpp",
+        "Text.cpp",
+        "Page.cpp",
         "Button.cpp",
         "StateStack.cpp",
         "-std=c++20",

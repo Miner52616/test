@@ -1,10 +1,12 @@
 #pragma once
-#include "state.h"
+#include "TextState.h"
 
-class ManualState:public State
+constexpr int ManPageNum=5;
+
+class ManualState:public TextState<ManualState>
 {
-private:
-    int page_;
 public:
-    ManualState(application &app);
+    using TextState<ManualState>::HandleEvent;
+    ManualState(application &app,const sf::Font &font);
+    void HandleEvent(sf::RenderWindow& window,const sf::Event::KeyPressed&);
 };

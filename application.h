@@ -10,6 +10,7 @@ class application
 {
 private:
     sf::RenderWindow window_;
+    sf::Font mainFont_;
 public:
     StateStack stack_;
 //    std::unique_ptr<State> current_state_=std::make_unique<MenuState>();

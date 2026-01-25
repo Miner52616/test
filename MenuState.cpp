@@ -1,10 +1,11 @@
 #include "MenuState.h"
 #include "DifficultyState.h"
+#include "ManualState.h"
 #include "application.h"
 #include <iostream>
 
-MenuState::MenuState(application &app):
-    ButtonState(app,MenuButtonNum)
+MenuState::MenuState(application &app,const sf::Font &font):
+    ButtonState(app,font,MenuButtonNum)
 {
     buttonlist_[0].setButtonText("Start");
     buttonlist_[0].setButtonPosition({100,100});
@@ -61,7 +62,14 @@ void MenuState::HandleEvent(sf::RenderWindow& window,const sf::Event::KeyPressed
             case 1:
             {
                 std::cout<<"choose difficulty\n";
-                app_.stack_.pushState(std::make_unique<DifficultyState>(app_));
+                app_.stack_.pushState(std::make_unique<DifficultyState>(app_,font_));
+                break;
+            }
+
+            case 3:
+            {
+                std::cout<<"manual for playing\n";
+                app_.stack_.pushState(std::make_unique<ManualState>(app_,font_));
                 break;
             }
         
