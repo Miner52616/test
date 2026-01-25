@@ -41,6 +41,7 @@ g++ main.cpp application.cpp MenuState.cpp DifficultyState.cpp \
     -LC:/msys64/mingw64/lib \
     -lsfml-graphics -lsfml-window -lsfml-system \
     -o main.exe
+```
 
 --- 
 
