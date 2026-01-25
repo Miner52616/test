@@ -5,6 +5,7 @@
 class Text
 {
 private:
+    const sf::Font &font_;
     sf::Text text_;
 public:
     Text(const sf::Font& font);

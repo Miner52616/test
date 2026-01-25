@@ -5,7 +5,7 @@ Page::Page(const sf::Font &font):
     font_(font)
 {
     //textlist_.resize(1);
-    textlist_.emplace_back(font_);
+    setTextlistLength(1);
 }
 
 void Page::addText()

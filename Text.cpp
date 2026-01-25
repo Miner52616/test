@@ -4,7 +4,7 @@
 
 //    font_("abc.ttf"),text_(font_)
 Text::Text(const sf::Font& font):
-    text_(font)
+    font_(font),text_(font_)
 {
     
 //    text_.setFont(font_);

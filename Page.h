@@ -4,8 +4,8 @@
 class Page
 {
 private:
-    std::vector<Text> textlist_;
     const sf::Font &font_;
+    std::vector<Text> textlist_;
 
 private:
     void addText();
