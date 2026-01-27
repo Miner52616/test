@@ -24,6 +24,16 @@ void Entity::setPosition(sf::Vector2f position)
     setPosition();
 }
 
+sf::Vector2f Entity::getPosition()
+{
+    return position_;
+}
+
+int Entity::getHitbox_r()
+{
+    return hitbox_r_;
+}
+
 void Entity::drawwindow(sf::RenderWindow& window)
 {
     window.draw(picture_);

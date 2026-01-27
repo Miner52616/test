@@ -28,6 +28,7 @@ protected:
     void player_bulletlist_move();
     void player_bulletlist_clear();
     void player_bulletlist_add();
+    void player_bulletlist_drawwindow(sf::RenderWindow& window);
     void HandleEvent(sf::RenderWindow& window,const sf::Event::Closed);
     void HandleEvent(sf::RenderWindow& window,auto){};
 };

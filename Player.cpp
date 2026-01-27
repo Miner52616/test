@@ -7,6 +7,19 @@ Player::Player(const sf::Texture &texture):
     rate_.frame=15;
 }
 
+bool Player::Handle_shoot_request()
+{
+    if(request_shoot_)
+    {
+        request_shoot_=false;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 void Player::drawwindow(sf::RenderWindow& window)
 {
     window.draw(picture_);

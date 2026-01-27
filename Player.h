@@ -12,9 +12,10 @@ private:
     bool hitbox_exist_;
     int speed_;
     Rate rate_;
+    bool request_shoot_;
 
 public:
-    bool request_shoot_;
+    bool Handle_shoot_request();
 
 public:
     Player(const sf::Texture &texture);

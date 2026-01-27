@@ -5,9 +5,6 @@ class Entity
 {
 protected:
     const sf::Texture &texture_;
-
-
-public:
     sf::Vector2f position_;
     int hitbox_r_;
 
@@ -18,6 +15,8 @@ protected:
 public:
     void setPosition();
     void setPosition(sf::Vector2f position);
+    sf::Vector2f getPosition();
+    int getHitbox_r();
 
     virtual void drawwindow(sf::RenderWindow& window);
 

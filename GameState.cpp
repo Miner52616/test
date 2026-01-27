@@ -32,34 +32,6 @@ void GameState::Update()
     enemy1_.set_exist(frame_);
 
     player_bulletlist_update();
-    /*for(auto it=player_bulletlist.begin();it!=player_bulletlist.end();++it)
-    {
-        (*it)->setPosition({(*it)->position_.x,(*it)->position_.y-12});
-    }
-    player_bulletlist.erase
-    (
-        std::remove_if
-        (
-            player_bulletlist.begin(),player_bulletlist.end(),
-            [](const std::unique_ptr<Bullet>& bullet)
-            {
-                if((bullet->position_.x<0)||(bullet->position_.y<0)||(bullet->position_.x>1280)||(bullet->position_.y>960))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        ),
-        player_bulletlist.end()
-    );
-    if(player_.request_shoot_)
-    {
-        player_bulletlist.emplace_back(std::make_unique<Bullet>(app_.bulletTexture_,player_.position_));
-        player_.request_shoot_=0;
-    }*/
 
     frame_++;
 }
@@ -67,13 +39,11 @@ void GameState::Update()
 void GameState::Render(sf::RenderWindow& window)
 {
     player_.drawwindow(window);
+
     enemy1_.drawwindow(window);
 
-    for(auto it=player_bulletlist.begin();it!=player_bulletlist.end();++it)
-    {
-        (*it)->drawwindow(window);
-        (*it)->setPosition({(*it)->position_.x,(*it)->position_.y-12});
-    }
+    player_bulletlist_drawwindow(window);
+    
 }
 
 void GameState::player_bulletlist_update()
@@ -87,7 +57,7 @@ void GameState::player_bulletlist_move()
 {
     for(auto it=player_bulletlist.begin();it!=player_bulletlist.end();++it)
     {
-        (*it)->setPosition({(*it)->position_.x,(*it)->position_.y-12});
+        (*it)->setPosition({(*it)->getPosition().x,(*it)->getPosition().y-12});
     }
 }
 
@@ -100,7 +70,7 @@ void GameState::player_bulletlist_clear()
             player_bulletlist.begin(),player_bulletlist.end(),
             [](const std::unique_ptr<Bullet>& bullet)
             {
-                if((bullet->position_.x<0)||(bullet->position_.y<0)||(bullet->position_.x>1280)||(bullet->position_.y>960))
+                if((bullet->getPosition().x<0)||(bullet->getPosition().y<0)||(bullet->getPosition().x>1280)||(bullet->getPosition().y>960))
                 {
                     return true;
                 }
@@ -116,10 +86,17 @@ void GameState::player_bulletlist_clear()
 
 void GameState::player_bulletlist_add()
 {
-    if(player_.request_shoot_)
+    if(player_.Handle_shoot_request())
     {
-        player_bulletlist.emplace_back(std::make_unique<Bullet>(app_.bulletTexture_,player_.position_));
-        player_.request_shoot_=0;
+        player_bulletlist.emplace_back(std::make_unique<Bullet>(app_.bulletTexture_,player_.getPosition()));
+    }
+}
+
+void GameState::player_bulletlist_drawwindow(sf::RenderWindow& window)
+{
+    for(auto it=player_bulletlist.begin();it!=player_bulletlist.end();++it)
+    {
+        (*it)->drawwindow(window);
     }
 }
 
