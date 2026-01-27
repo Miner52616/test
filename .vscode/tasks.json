@@ -19,6 +19,7 @@
         "Entity.cpp",
         "Player.cpp",
         "Enemy.cpp",
+        "Bullet.cpp",
         "StateStack.cpp",
         "-std=c++20",
         "-IC:/msys64/mingw64/include",

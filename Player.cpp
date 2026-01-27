@@ -1,9 +1,10 @@
 #include "Player.h"
 
 Player::Player(const sf::Texture &texture):
-    Entity(texture),hitbox_exist_(false),speed_(15)
+    Entity(texture),hitbox_exist_(false),speed_(10),request_shoot_(false)
 {
-    ;
+    rate_.current=0;
+    rate_.frame=15;
 }
 
 void Player::drawwindow(sf::RenderWindow& window)
@@ -46,5 +47,15 @@ void Player::Player_update()
     {
         hitbox_exist_=false;
         speed_=15;
+    }
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Z))
+    {
+        rate_.current++;
+        if(rate_.current>=rate_.frame)
+        {
+            request_shoot_=true;
+            rate_.current=0;
+        }
     }
 }

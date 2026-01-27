@@ -17,6 +17,7 @@ public:
     sf::Font mainFont_;
     sf::Texture playerTexture_;
     sf::Texture enemyTexture_;
+    sf::Texture bulletTexture_;
 
 public:
     StateStack stack_;

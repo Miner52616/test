@@ -8,7 +8,8 @@ application::application():
     window_(sf::VideoMode({1280,960}),"trytry window"),
     mainFont_("abc.ttf"),
     playerTexture_("player.png"),
-    enemyTexture_("enemy.png")
+    enemyTexture_("enemy.png"),
+    bulletTexture_("bullet.png")
 {
 //    mainFont_.openFromFile("abc.ttf");
     window_.setFramerateLimit(60);
