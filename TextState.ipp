@@ -3,7 +3,7 @@
 
 template<typename Derived>
 TextState<Derived>::TextState(application &app,const sf::Font &font,int PageNum):
-    State(app,font),focus_(1)
+    State(app),focus_(1)
 {
     //pagelist_.resize(PageNum);
     setPagelistLength(PageNum);

@@ -5,7 +5,9 @@
 
 application::application():
 //初始化窗口属性
-    window_(sf::VideoMode({1280,960}),"trytry window"),mainFont_("abc.ttf")
+    window_(sf::VideoMode({1280,960}),"trytry window"),
+    mainFont_("abc.ttf"),
+    playerTexture_("player.png")
 {
 //    mainFont_.openFromFile("abc.ttf");
     window_.setFramerateLimit(60);

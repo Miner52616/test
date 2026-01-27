@@ -1,5 +1,6 @@
 #include "DifficultyState.h"
 #include "application.h"
+#include "GameState.h"
 #include <iostream>
 
 DifficultyState::DifficultyState(application &app,const sf::Font &font):
@@ -52,6 +53,7 @@ void DifficultyState::HandleEvent(sf::RenderWindow& window,const sf::Event::KeyP
             case 1:
             {
                 std::cout<<"Easy mode\n";
+                app_.stack_.pushState(std::make_unique<GameState>(app_));
                 break;
             }
         

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-//#include "application.h"
 //#include "main.cpp"
 
 class application;
@@ -9,7 +8,7 @@ class application;
 class State
 {
 public:
-    explicit State(application &app,const sf::Font &font):app_(app),font_(font){}
+    explicit State(application &app);//:app_(app),font_(app.mainFont_){}
     virtual ~State()=default;
 
     virtual void ProcessEvent(sf::RenderWindow& window,const std::optional<sf::Event> event)=0;
