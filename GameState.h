@@ -11,7 +11,7 @@ private:
     Player player_;
     Enemy enemy1_;
 
-    std::vector<Bullet> player_bulletlist;
+    std::vector<std::unique_ptr<Bullet>> player_bulletlist;
 
 public:
     void ProcessEvent(sf::RenderWindow& window,const std::optional<sf::Event> event) override;
@@ -22,6 +22,12 @@ public:
     GameState(application &app);
 
 protected:
+    void player_bulletlist_update();
+
+protected:
+    void player_bulletlist_move();
+    void player_bulletlist_clear();
+    void player_bulletlist_add();
     void HandleEvent(sf::RenderWindow& window,const sf::Event::Closed);
     void HandleEvent(sf::RenderWindow& window,auto){};
 };

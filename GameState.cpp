@@ -31,18 +31,19 @@ void GameState::Update()
 
     enemy1_.set_exist(frame_);
 
-    for(auto it=player_bulletlist.begin();it!=player_bulletlist.end();++it)
+    player_bulletlist_update();
+    /*for(auto it=player_bulletlist.begin();it!=player_bulletlist.end();++it)
     {
-        it->setPosition({it->position_.x,it->position_.y-12});
+        (*it)->setPosition({(*it)->position_.x,(*it)->position_.y-12});
     }
     player_bulletlist.erase
     (
         std::remove_if
         (
             player_bulletlist.begin(),player_bulletlist.end(),
-            [](const Bullet &bullet)
+            [](const std::unique_ptr<Bullet>& bullet)
             {
-                if((bullet.position_.x<0)||(bullet.position_.y<0)||(bullet.position_.x>1280)||(bullet.position_.y>960))
+                if((bullet->position_.x<0)||(bullet->position_.y<0)||(bullet->position_.x>1280)||(bullet->position_.y>960))
                 {
                     return true;
                 }
@@ -56,9 +57,9 @@ void GameState::Update()
     );
     if(player_.request_shoot_)
     {
-        player_bulletlist.emplace_back(app_.bulletTexture_,player_.position_);
+        player_bulletlist.emplace_back(std::make_unique<Bullet>(app_.bulletTexture_,player_.position_));
         player_.request_shoot_=0;
-    }
+    }*/
 
     frame_++;
 }
@@ -70,8 +71,55 @@ void GameState::Render(sf::RenderWindow& window)
 
     for(auto it=player_bulletlist.begin();it!=player_bulletlist.end();++it)
     {
-        it->drawwindow(window);
-        it->setPosition({it->position_.x,it->position_.y-12});
+        (*it)->drawwindow(window);
+        (*it)->setPosition({(*it)->position_.x,(*it)->position_.y-12});
+    }
+}
+
+void GameState::player_bulletlist_update()
+{
+    player_bulletlist_move();
+    player_bulletlist_clear();
+    player_bulletlist_add();
+}
+
+void GameState::player_bulletlist_move()
+{
+    for(auto it=player_bulletlist.begin();it!=player_bulletlist.end();++it)
+    {
+        (*it)->setPosition({(*it)->position_.x,(*it)->position_.y-12});
+    }
+}
+
+void GameState::player_bulletlist_clear()
+{
+    player_bulletlist.erase
+    (
+        std::remove_if
+        (
+            player_bulletlist.begin(),player_bulletlist.end(),
+            [](const std::unique_ptr<Bullet>& bullet)
+            {
+                if((bullet->position_.x<0)||(bullet->position_.y<0)||(bullet->position_.x>1280)||(bullet->position_.y>960))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        ),
+        player_bulletlist.end()
+    );
+}
+
+void GameState::player_bulletlist_add()
+{
+    if(player_.request_shoot_)
+    {
+        player_bulletlist.emplace_back(std::make_unique<Bullet>(app_.bulletTexture_,player_.position_));
+        player_.request_shoot_=0;
     }
 }
 
