@@ -1,11 +1,14 @@
 #pragma once
 #include "state.h"
 #include "Player.h"
+#include "Enemy.h"
 
 class GameState:public State
 {
 private:
+    long long int frame_;
     Player player_;
+    Enemy enemy1_;
 
 public:
     void ProcessEvent(sf::RenderWindow& window,const std::optional<sf::Event> event) override;

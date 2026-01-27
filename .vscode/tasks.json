@@ -18,6 +18,7 @@
         "Button.cpp",
         "Entity.cpp",
         "Player.cpp",
+        "Enemy.cpp",
         "StateStack.cpp",
         "-std=c++20",
         "-IC:/msys64/mingw64/include",

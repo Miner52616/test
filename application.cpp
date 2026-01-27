@@ -7,7 +7,8 @@ application::application():
 //初始化窗口属性
     window_(sf::VideoMode({1280,960}),"trytry window"),
     mainFont_("abc.ttf"),
-    playerTexture_("player.png")
+    playerTexture_("player.png"),
+    enemyTexture_("enemy.png")
 {
 //    mainFont_.openFromFile("abc.ttf");
     window_.setFramerateLimit(60);

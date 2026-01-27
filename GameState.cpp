@@ -3,9 +3,15 @@
 #include <iostream>
 
 GameState::GameState(application &app):
-    State(app),player_(app.playerTexture_)
+    State(app),
+    frame_(0),
+    player_(app.playerTexture_),
+    enemy1_(app.enemyTexture_)
 {
     player_.setPosition({640,480});
+    enemy1_.setPosition({640,100});
+
+    enemy1_.set_start_end(480,216000);
 }
 
 void GameState::ProcessEvent(sf::RenderWindow& window,const std::optional<sf::Event> event)
@@ -21,30 +27,17 @@ void GameState::ProcessEvent(sf::RenderWindow& window,const std::optional<sf::Ev
 
 void GameState::Update()
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-    {
-        player_.setPosition({player_.position_.x,(player_.position_.y)-5});
-    }
+    player_.Player_update();
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-    {
-        player_.setPosition({player_.position_.x,(player_.position_.y)+5});
-    }
+    enemy1_.set_exist(frame_);
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-    {
-        player_.setPosition({player_.position_.x-5,player_.position_.y});
-    }
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
-    {
-        player_.setPosition({player_.position_.x+5,player_.position_.y});
-    }
+    frame_++;
 }
 
 void GameState::Render(sf::RenderWindow& window)
 {
     player_.drawwindow(window);
+    enemy1_.drawwindow(window);
 }
 
 void GameState::HandleEvent(sf::RenderWindow& window,const sf::Event::Closed)

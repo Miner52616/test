@@ -19,7 +19,7 @@ public:
     void setPosition();
     void setPosition(sf::Vector2f position);
 
-    void drawwindow(sf::RenderWindow& window);
+    virtual void drawwindow(sf::RenderWindow& window);
 
 public:
     Entity(const sf::Texture &texture);

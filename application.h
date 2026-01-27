@@ -16,6 +16,7 @@ public:
     //其它资源通过application指针或者引用使用即可
     sf::Font mainFont_;
     sf::Texture playerTexture_;
+    sf::Texture enemyTexture_;
 
 public:
     StateStack stack_;
