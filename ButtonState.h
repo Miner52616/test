@@ -13,7 +13,7 @@ protected:
     std::vector<Button> buttonlist_;
 
 public:
-    ButtonState(application &app,const sf::Font &font,int ButtonNum);
+    ButtonState(application &app,int ButtonNum);
     void setbuttonlistLength(int length);
     void ProcessEvent(sf::RenderWindow& window,const std::optional<sf::Event> event) override;
     void Update() override;

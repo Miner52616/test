@@ -7,7 +7,7 @@ class MenuState:public ButtonState<MenuState>
 {
 public:
     using ButtonState<MenuState>::HandleEvent;
-    MenuState(application &app,const sf::Font &font);
+    MenuState(application &app);
     void HandleEvent(sf::RenderWindow& window,const sf::Event::KeyPressed&);
 };
 

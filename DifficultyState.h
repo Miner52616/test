@@ -7,6 +7,6 @@ class DifficultyState:public ButtonState<DifficultyState>
 {
 public:
     using ButtonState<DifficultyState>::HandleEvent;
-    DifficultyState(application &app,const sf::Font &font);
+    DifficultyState(application &app);
     void HandleEvent(sf::RenderWindow& window,const sf::Event::KeyPressed&);
 };

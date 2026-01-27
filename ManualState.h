@@ -7,6 +7,6 @@ class ManualState:public TextState<ManualState>
 {
 public:
     using TextState<ManualState>::HandleEvent;
-    ManualState(application &app,const sf::Font &font);
+    ManualState(application &app);
     void HandleEvent(sf::RenderWindow& window,const sf::Event::KeyPressed&);
 };

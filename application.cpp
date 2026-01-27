@@ -12,7 +12,7 @@ application::application():
 {
 //    mainFont_.openFromFile("abc.ttf");
     window_.setFramerateLimit(60);
-    stack_.push(std::make_unique<MenuState>(*this,this->mainFont_));
+    stack_.push(std::make_unique<MenuState>(*this));
 }
 
 bool application::IsRunning() const

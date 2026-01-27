@@ -2,7 +2,7 @@
 #include <iostream>
 
 template<typename Derived>
-TextState<Derived>::TextState(application &app,const sf::Font &font,int PageNum):
+TextState<Derived>::TextState(application &app,int PageNum):
     State(app),focus_(1)
 {
     //pagelist_.resize(PageNum);

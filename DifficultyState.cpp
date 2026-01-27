@@ -3,8 +3,8 @@
 #include "GameState.h"
 #include <iostream>
 
-DifficultyState::DifficultyState(application &app,const sf::Font &font):
-    ButtonState(app,font,DifButtonNum)
+DifficultyState::DifficultyState(application &app):
+    ButtonState(app,DifButtonNum)
 {
     buttonlist_[0].setButtonText("Easy");
     buttonlist_[0].setButtonPosition({150,250});

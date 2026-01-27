@@ -3,7 +3,7 @@
 #include <iostream>
 
 template<typename Derived>
-ButtonState<Derived>::ButtonState(application &app,const sf::Font &font,int ButtonNum):
+ButtonState<Derived>::ButtonState(application &app,int ButtonNum):
     State(app),focus_(1)
 {
     //buttonlist_.resize(ButtonNum);

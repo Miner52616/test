@@ -2,8 +2,8 @@
 #include "application.h"
 #include <iostream>
 
-ManualState::ManualState(application &app,const sf::Font &font):
-    TextState(app,font,ManPageNum)
+ManualState::ManualState(application &app):
+    TextState(app,ManPageNum)
 {
     pagelist_[0].setTextlistLength(2);
     pagelist_[0].setTextText(1,"Title 1");
